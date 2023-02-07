@@ -11,17 +11,17 @@ The command line interpreter should:
 
 ### Execution ###
 > Interactive Mode Functionality:
-> $ ./console.py
-> (hbnb) help
->
-> Documented commands (type help <topic>):
-> ========================================
-> EOF  help  quit
->
-> (hbnb) 
-> (hbnb) 
-> (hbnb) quit
-> $
+ $ ./console.py
+ (hbnb) help
+
+ Documented commands (type help <topic):
+ ========================================
+ EOF  help  quit
+
+ (hbnb) 
+ (hbnb) 
+ (hbnb) quit
+ $
 >
 
 > Non-interactive Mode Functionality:
