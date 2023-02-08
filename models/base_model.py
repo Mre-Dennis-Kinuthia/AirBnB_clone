@@ -1,4 +1,3 @@
-# pylint: disable=invalid-name
 #!/usr/bin/env python3
 """ date time module import
 """
@@ -13,7 +12,7 @@ class BaseModel:
         self.id = id
         self.created_at = created_at
         self.updated_at = updated_at
-    """
+          """
     def __init__ (self, *args, **kwargs):
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
@@ -25,6 +24,7 @@ class BaseModel:
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
                     setattr(self, key, value)
+
 
     def save(self):
         """updates the public instance attribute updated_at
