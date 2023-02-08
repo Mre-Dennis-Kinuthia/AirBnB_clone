@@ -1,4 +1,3 @@
-# pylint: disable=invalid-name
 #!/usr/bin/env python3
 """ date time module import
 """
@@ -10,10 +9,15 @@ import uuid
 class BaseModel:
 
     def __init__ (self, id, created_at, updated_at):
-        id = str(uuid.uuid4())
         self.id = id
         self.created_at = created_at
         self.updated_at = updated_at
+        
+    def id(self):
+         self.id = str(uuid.uuid4())
+         return self.id
+         
+   
 
     def save(self):
         """updates the public instance attribute updated_at
