@@ -12,15 +12,7 @@ class BaseModel:
         self.id = id
         self.created_at = created_at
         self.updated_at = updated_at
-<<<<<<< HEAD
-        
-    def id(self):
-         self.id = str(uuid.uuid4())
-         return self.id
-         
-   
-=======
-    """
+          """
     def __init__ (self, *args, **kwargs):
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
@@ -31,7 +23,7 @@ class BaseModel:
                 if key == "created_at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 setattr(self, key, value)
->>>>>>> bf27e6acbbce4a72ce92704c72205251b1ee94f4
+
 
     def save(self):
         """updates the public instance attribute updated_at
