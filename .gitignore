@@ -2,5 +2,7 @@ deploy.sh
 .vscode
 .md
 
+file.json
+
 !README.md
 TEXTBOX/
