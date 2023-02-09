@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-import os
-#!/usr/bin/env python3
+
 import os
 from models.base_model import BaseModel
-
 import json
 
-import json
 
 class FileStorage:
     __file_path = "file.json"
