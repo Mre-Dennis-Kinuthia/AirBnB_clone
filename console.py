@@ -23,10 +23,6 @@ class HBNBCommand(cmd.Cmd):
         """help end of file"""
         return True
 
-    def help(self):
-        """Help method"""
-        print("/n")
-
     def emptyline(self):
         """Empty line method"""
         pass
