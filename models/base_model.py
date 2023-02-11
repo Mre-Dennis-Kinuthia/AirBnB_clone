@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-""" date time module import
-"""
-
 
 import models
 from datetime import datetime
@@ -9,9 +6,11 @@ import uuid
 
 
 class BaseModel:
+    """Class Basemodel"""
     instances = {}
 
-    def __init__ (self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        """constractor"""
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -34,7 +33,11 @@ class BaseModel:
 
     def __str__(self):
         """returns a string representation of a BaseModel class"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__
+        )
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__"""

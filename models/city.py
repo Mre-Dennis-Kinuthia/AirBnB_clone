@@ -4,6 +4,7 @@ from models.base_model import BaseModel
 
 
 class City(BaseModel):
+    """ Class City inherits Basemodel """
     state_id = ''
     name = ''
     

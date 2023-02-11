@@ -10,10 +10,13 @@ from models.review import Review
 from models.place import Place
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
+    """class HNNBC gets cm.Cmd"""
     prompt = "(hbnb) "
 
     def do_prompt(self, line):
+        """ do_prompy method"""
         self.prompt = line + ": "
 
     def do_quit(self, s):
@@ -25,13 +28,25 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def help(self):
+        """Help method"""
         print("/n")
 
     def emptyline(self):
+        """Empty line method"""
         pass
 
     def do_create(self, model_type):
-        if model_type == 'BaseModel' or model_type == 'User' or model_type == 'City' or model_type == 'Amenity' or model_type == 'Place' or model_type == 'Review' or model_type == 'State':
+        """create methode"""
+        model_types = [
+            'BaseModel',
+            'User',
+            'City',
+            'Amenity',
+            'Place',
+            'Review',
+            'State'
+        ]
+        if model_type in model_types:
             if model_type == 'BaseModel':
                 bm = BaseModel()
                 bm.save()
@@ -64,6 +79,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
+        """show Method"""
         args = line.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -84,6 +100,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, line):
+        """destroy method"""
         args = line.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -105,6 +122,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, line):
+        """do all method"""
         all_obj = storage.all()
         args = line.split()
         if len(args) == 0:
@@ -118,6 +136,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, line):
+        """update method"""
         args = line.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -146,6 +165,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
         else:
             print("** class doesn't exist **")
+
 
 if __name__ == '__main__':
     hbnb = HBNBCommand()
