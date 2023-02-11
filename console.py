@@ -15,11 +15,7 @@ class HBNBCommand(cmd.Cmd):
     """class HNNBC gets cm.Cmd"""
     prompt = "(hbnb) "
 
-    def do_prompt(self, line):
-        """ do_prompy method"""
-        self.prompt = line + ": "
-
-    def do_quit(self, s):
+    def do_quit(self, line):
         """help quit"""
         return True
 
