@@ -9,17 +9,14 @@ import uuid
 
 
 class BaseModel:
-    """ BaseModel class
-    def __init__ (self, id, created_at, updated_at):
-        self.id = id
-        self.created_at = created_at
-        self.updated_at = updated_at
-          """
+    instances = {}
+
     def __init__ (self, *args, **kwargs):
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            self.__class__.instances[self.id] = self
         else:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
