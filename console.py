@@ -16,15 +16,15 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, line):
-        """help quit"""
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, line):
-        """help end of file"""
+        """EOF to exit the program"""
         return True
 
     def emptyline(self):
-        """Empty line method"""
+        """Do nothing upon Enter on empty line"""
         pass
 
     def do_create(self, model_type):
