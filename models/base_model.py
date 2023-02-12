@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
+"""base class for all models"""
 
-import models
+
 from datetime import datetime
 import uuid
-
+import models
 
 class BaseModel:
     """Class Basemodel"""

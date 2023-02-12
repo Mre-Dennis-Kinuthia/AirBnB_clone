@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""file contains class on FileStorage"""
+
 
 import os
 from models.base_model import BaseModel
@@ -8,7 +10,6 @@ from models.city import City
 from models.state import State
 from models.review import Review
 from models.place import Place
-
 import json
 
 
@@ -29,13 +30,13 @@ class FileStorage:
     def save(self):
         """"save the object"""
         obj_dict = {key: obj.to_dict() for key, obj in FileStorage.__objects.items()}
-        with open(FileStorage.__file_path, 'w') as f:
+        with open(FileStorage.__file_path, mode='w') as f:
             json.dump(obj_dict, f)
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file exists)"""
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path, 'r') as f:
+            with open(FileStorage.__file_path, mode='r') as f:
                 obj_dict = json.load(f)
             for key, value in obj_dict.items():
                 class_name = value.pop("__class__", None)

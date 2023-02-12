@@ -16,7 +16,7 @@ class TestBaseModel_instantiation(unittest.TestCase):
         base_model_1= BaseModel()
         base_model_2= BaseModel()
         self.assertNotEqual(base_model_1.id, base_model_2.id)
-        
+    
     def test_created_at(self):
         """tests if the created_at property is similar for instances created at the same time"""
         base_model_1= BaseModel()
@@ -105,8 +105,8 @@ class TestBaseModel_save(unittest.TestCase):
         try:
             os.rename("file.json", "testfile")
         except IOError:
-            pass   
-    
+            pass
+        
     @classmethod
     def tearDown(self):
         try:
@@ -122,12 +122,6 @@ class TestBaseModel_save(unittest.TestCase):
         """tests save method for first object"""
         base_model_1 = BaseModel()
         sleep(0.05)
-        firt_update = base_model_1.updated_at
+        firt_updated = base_model_1.updated_at
         base_model_1.save()
-        self.assertGreater(base_model_1.updated_at, firt_update)
-        
-
-
-        
-
-                
+        self.assertLess(first_updated, base_model_1.updated_at)
