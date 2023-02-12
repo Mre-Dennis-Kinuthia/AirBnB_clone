@@ -13,6 +13,7 @@ import json
 
 
 class FileStorage:
+    """Class that defines how to store instances of BaseModel"""
     __file_path = "file.json"
     __objects = {}
 
