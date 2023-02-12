@@ -77,3 +77,45 @@ class TestFileStorage_methods(unittest.TestCase):
             self.assertIn("{}.{}". format(type(obj).__name__, obj.id), models.storage.all().keys())
             self.assertIn(obj, models.storage.all().values())
 
+    def test_new_args(self):
+        """tests the new method with arguments"""
+        with self.assertRaises(TypeError):
+            models.storage.new(BaseModel(), "12345")
+            models.storage.new(None)
+    
+    def test_save(self):
+        """test the save method"""
+        objects = [BaseModel(), User(), State(), Place(), Amenity(), Review()]
+        for obj in objects:
+            models.storage.new(obj)
+        models.storage.save()
+        saved_text = ""
+        with open("file.json", "r") as file:
+            saved_text = file.read()
+        for obj in objects:
+            self.assertIn(f"{type(obj).__name__}.{obj.id}", saved_text)
+
+    
+    def test_save_args(self):
+        """test the save method with arguments"""
+        with self.assertRaises(TypeError):
+            models.storage.save(BaseModel(), "12345")
+            models.storage.save(None)
+        
+    def test_reload(self):
+        """test the reload method"""
+        objects = [BaseModel(), User(), State(), Place(), Amenity(), Review()]
+        for obj in objects:
+            models.storage.new(obj)
+        models.storage.save()
+        models.storage.reload()
+        objs = FileStorage._FileStorage__objects
+        for obj in objects:
+            self.assertIn(f"{type(obj).__name__}.{obj.id}", objs)
+            
+    def test_reload_args(self):
+        """Test the reload method with arguments"""
+        with self.assertRaises(TypeError):
+            models.storage.reload(BaseModel(), "12345")
+            models.storage.reload(None)
+            
