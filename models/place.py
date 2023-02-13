@@ -17,7 +17,7 @@ class Place(BaseModel):
     price_by_night = 0
     latitude = 0.0
     longitude = 0.0
-    amenity_id = ''
+    amenity_ids = ''
 
     def __init__(self, *args, **kwargs):
         """ Initialize Place """
@@ -32,4 +32,4 @@ class Place(BaseModel):
         self.price_by_night = kwargs.get('price_by_night', 0)
         self.latitude = kwargs.get('latitude', 0.0)
         self.longitude = kwargs.get('longitude', 0.0)
-        self.amenity_id = kwargs.get('amenity_id', "")
+        self.amenity_ids = kwargs.get('amenity_id', "")
