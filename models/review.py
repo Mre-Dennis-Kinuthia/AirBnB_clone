@@ -1,7 +1,8 @@
 #!/usr/bin/env python
+"""defines class Review"""
+
 
 from models.base_model import BaseModel
-
 
 class Review(BaseModel):
     """ class Review inherits BaseModel"""

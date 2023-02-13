@@ -15,24 +15,16 @@ class HBNBCommand(cmd.Cmd):
     """class HNNBC gets cm.Cmd"""
     prompt = "(hbnb) "
 
-    def do_prompt(self, line):
-        """ do_prompy method"""
-        self.prompt = line + ": "
-
-    def do_quit(self, s):
-        """help quit"""
+    def do_quit(self, line):
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, line):
-        """help end of file"""
+        """EOF to exit the program"""
         return True
 
-    def help(self):
-        """Help method"""
-        print("/n")
-
     def emptyline(self):
-        """Empty line method"""
+        """Do nothing upon Enter on empty line"""
         pass
 
     def do_create(self, model_type):
@@ -166,8 +158,5 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-
 if __name__ == '__main__':
-    hbnb = HBNBCommand()
-    hbnb.cmdloop()
-    
+    HBNBCommand().cmdloop()

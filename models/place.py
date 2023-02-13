@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+"""class place definition"""
+
 
 from models.base_model import BaseModel
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+"""defines class User"""
 from models.base_model import BaseModel
 
 
