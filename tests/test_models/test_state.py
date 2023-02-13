@@ -77,4 +77,7 @@ class TestState_instantiation(unittest.TestCase):
         """test that instantiation of class without kwargs None value won't work"""
         with self.assertRaises(TypeError):
             State(id=None, created_at=None, updated_at=None)
-               
+            
+if __name__ == "__main__":
+    unittest.main()
+   
