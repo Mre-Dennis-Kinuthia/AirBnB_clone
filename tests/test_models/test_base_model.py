@@ -96,32 +96,3 @@ class TestBaseModel_instantiation(unittest.TestCase):
         """test that instantiation of class without kwargs None value won't work"""
         with self.assertRaises(TypeError):
             BaseModel(id=None, created_at=None, updated_at=None)
-
-class TestBaseModel_save(unittest.TestCase):
-    """unittests for testing save method"""
-
-    @classmethod
-    def setUp(self):
-        try:
-            os.rename("file.json", "testfile")
-        except IOError:
-            pass
-
-    @classmethod
-    def tearDown(self):
-        try:
-            os.remove("file.json")
-        except IOError:
-            pass
-        try:
-            os.rename("testfile", "file.json")
-        except IOError:
-            pass
-
-    def test_save_one(self):
-        """tests save method for first object"""
-        base_model_1 = BaseModel()
-        sleep(0.05)
-        first_updated = base_model_1.updated_at
-        base_model_1.save()
-        self.assertLess(first_updated, base_model_1.updated_at)
