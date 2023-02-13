@@ -170,8 +170,4 @@ class HBNBCommand(cmd.Cmd):
 if __name__ == '__main__':
     hbnb = HBNBCommand()
     hbnb.cmdloop()
-    hbnb.do_create('BaseModel')
-    hbnb.do_show('BaseModel instance_id')
-    hbnb.do_destroy('BaseModel instance_id')
-    hbnb.do_all('BaseModel')
-    hbnb.do_update('BaseModel instance_id attr_name attr_value')
+    
